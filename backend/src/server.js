@@ -32,6 +32,10 @@ app.disable("x-powered-by");
 app.set("trust proxy", readNonNegativeInteger("TRUST_PROXY", 0));
 app.use(express.json({ limit: "20kb" }));
 
+app.get("/health", (_request, response) => {
+  response.json({ ok: true });
+});
+
 app.use(
   cors({
     origin(origin, callback) {
@@ -56,10 +60,6 @@ const askLimiter = rateLimit({
   message: {
     error: "请求太频繁，请稍后再试。",
   },
-});
-
-app.get("/health", (_request, response) => {
-  response.json({ ok: true });
 });
 
 app.post("/api/ask", askLimiter, async (request, response) => {
