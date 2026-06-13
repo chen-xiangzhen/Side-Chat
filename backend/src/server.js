@@ -172,7 +172,7 @@ app.listen(port, () => {
 
 function isOriginAllowed(origin) {
   if (!origin) {
-    return process.env.NODE_ENV !== "production";
+    return true;
   }
 
   if (allowedOrigins.size === 0) {
