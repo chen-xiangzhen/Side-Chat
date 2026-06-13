@@ -33,7 +33,7 @@ app.set("trust proxy", readNonNegativeInteger("TRUST_PROXY", 0));
 app.use(express.json({ limit: "20kb" }));
 
 app.get("/health", (_request, response) => {
-  response.json({ ok: true });
+  response.json({ ok: true, version: "health-v2" });
 });
 
 app.use(
