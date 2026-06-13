@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "AI 划词追问",
+  "version": "0.1.0",
+  "description": "在 ChatGPT、Gemini、Kimi 页面框选内容并原地追问。",
+  "permissions": [],
+  "host_permissions": [
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://kimi.moonshot.cn/*",
+        "https://www.kimi.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
+
