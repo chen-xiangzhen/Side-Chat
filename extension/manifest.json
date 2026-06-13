@@ -5,7 +5,7 @@
   "description": "在 ChatGPT、Gemini、Kimi 页面框选内容并原地追问。",
   "permissions": [],
   "host_permissions": [
-    "http://localhost:3000/*"
+    "https://side-chat-production.up.railway.app/*"
   ],
   "background": {
     "service_worker": "service-worker.js"
